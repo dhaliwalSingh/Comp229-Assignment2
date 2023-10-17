@@ -19,7 +19,7 @@ router.put('/api/products/:id', productCtrl.updateProduct);
 router.delete('/api/products/:id', productCtrl.deleteProduct);
 
 // DELETE - Remove all products
-router.delete('/api/products/all', productCtrl.deleteAllProducts);
+router.delete('/api/products', productCtrl.deleteAllProducts);
 
 // GET products by name
 router.get('/api/products/search', productCtrl.findProductsByName);

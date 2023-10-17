@@ -84,8 +84,9 @@ const deleteProduct = async (req, res) => {
 
 const deleteAllProducts = async (req, res) => {
   try {
-    const result = await Product.deleteMany({}); // Delete all products
-    if (result.ok) {
+    // Delete all products from your database
+    const result = await Product.deleteMany({});
+    if (result.deletedCount > 0) {
       res.json({ message: 'All products deleted successfully' });
     } else {
       res.json({ message: 'No products found to delete' });
