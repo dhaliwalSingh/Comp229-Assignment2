@@ -54,7 +54,8 @@ const updateProduct = async (req, res) => {
     product.set(updateFields);
     product.updated = Date.now();
     await product.save();
-    res.json(product);
+    res.json({message: 'Product updated'});
+    
   } catch (err) {
     console.error(err);
     return res.status(400).json({
