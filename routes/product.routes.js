@@ -22,6 +22,6 @@ router.delete('/api/products/:id', productCtrl.deleteProduct);
 router.delete('/api/products', productCtrl.deleteAllProducts);
 
 // GET products by name
-router.get('/api/products?name=', productCtrl.findProductsByName);
+router.get('/api/products', productCtrl.findProductsByName);
 
 export default router;

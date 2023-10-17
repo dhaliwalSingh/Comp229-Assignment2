@@ -107,10 +107,9 @@ const findProductsByName = async (req, res) => {
     if (!name || name.trim() === '') {
       return res.status(400).json({ error: 'Invalid or missing name parameter' });
     }
+    const regex = new RegExp(name.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
 
-    const products = await Product.find({
-      name: { $regex: new RegExp(name, 'i') },
-    });
+    const products = await Product.find({ name: regex });
 
     if (products.length === 0) {
       return res.status(404).json({ error: 'No products found with the given name' });
